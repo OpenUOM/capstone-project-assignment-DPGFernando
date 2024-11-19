@@ -42,15 +42,6 @@ export class StudentTableComponent implements OnInit {
     })
   }
 
-  deleteStudent(itemid){
-    const student = {
-      id: itemid
-    }
-    this.service.deleteStudent(student).subscribe((response)=>{
-      this.getStudentData()
-    })
-  }
-
   search(value) {
     let foundItems = [];
     if (value.length <= 0) {
@@ -64,4 +55,14 @@ export class StudentTableComponent implements OnInit {
       this.studentData = foundItems;
     }
   }
+
+  deleteStudent(itemid){
+    const student = {
+      id: itemid
+    }
+    this.service.deleteStudent(student).subscribe((response)=>{
+      this.getStudentData()
+    })
+  }
+
 }
